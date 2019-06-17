@@ -46,7 +46,25 @@ public class HomeFragment extends Fragment {
     private void initListView() {
         context = getActivity();
         listViewInfos = new LinkedList<ListViewInfo>();
-
+        listViewInfos.add(new ListViewInfo(R.drawable.yingguo,"英镑","England",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.hongkong,"港币","HongKong",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.meiguo,"美元","American",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.ruishi,"瑞士法郎","Switzerland",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.xinjiapo,"新加坡元","Singapore",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.ruidian,"瑞典克朗","Sweden",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.danmai,"丹麦克朗","Denmark",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.nuowei,"挪威克朗","Norway",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.riben,"日元","Japan",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.jianada,"加拿大元","Canada",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.aodaliya,"澳大利亚元","Australia",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.oumeng,"欧元","Europe",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.aomen,"澳门币","Macao",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.feilvbin,"比索","The Philippines",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.taiguo,"泰铢","Thailand",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.xinxilan,"新西兰元","New Zealand",""));
+        listViewInfos.add(new ListViewInfo(R.drawable.hanguo,"韩元","Korea",""));
+        mAdapter = new ListViewInfoAdapter((LinkedList<ListViewInfo>)listViewInfos,context);
+        listView.setAdapter(mAdapter);
     }
 
 }
