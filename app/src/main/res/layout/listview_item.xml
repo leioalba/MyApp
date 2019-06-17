@@ -9,20 +9,20 @@
     <ImageView
         android:id="@+id/img_country"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/meiguo"/>
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="5dp">
+        android:layout_marginLeft="10dp">
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="美元"/>
+
 
         <TextView
             android:id="@+id/tv_content"
