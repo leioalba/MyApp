@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
     private void initListView() {
         context = getActivity();
         listViewInfos = new LinkedList<ListViewInfo>();
-
+        
     }
 
 }
