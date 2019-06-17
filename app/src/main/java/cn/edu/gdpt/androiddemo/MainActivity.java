@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.menu_main);
         drawerLayout=findViewById(R.id.dl_left);
     }
-    
+
     private void showDrawerLayout() {
         if (!drawerLayout.isDrawerOpen(Gravity.LEFT)) {
             drawerLayout.openDrawer(Gravity.LEFT);
