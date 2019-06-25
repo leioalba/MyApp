@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidDemo</string>
+    <string name="huilv">汇率：</string>
 </resources>

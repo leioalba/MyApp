@@ -1,56 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:orientation="horizontal"
-    android:padding="30dp">
-
-    <ImageView
-        android:id="@+id/img_country"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+<layout>
+<data>
+    <variable
+    name="bank"
+    type="cn.edu.gdpt.androiddemo.bean.MyHuilv.DataBean">
+</variable>
+</data>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp">
+        item="@{bank}"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:padding="30dp">
 
-        <TextView
-            android:id="@+id/tv_title"
+
+        <ImageView
+            imgs="@{bank.name}"
+            activity="@{0}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="美元"/>
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{bank.name}"/>
 
 
-        <TextView
-            android:id="@+id/tv_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="United States Dollar"/>
+            <TextView
 
-    </LinearLayout>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@{bank.date}"/>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical">
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_rate"
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="111" />
+            android:layout_gravity="center_vertical">
+
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="@{@string/huilv+bank.bankConversionPri}" />
+
+        </LinearLayout>
+
+
+
+
+
+
 
     </LinearLayout>
-
-
-
-
-
-
-
-</LinearLayout>
+</layout>

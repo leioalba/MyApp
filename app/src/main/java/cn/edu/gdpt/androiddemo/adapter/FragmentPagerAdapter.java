@@ -1,11 +1,11 @@
-package cn.edu.gdpt.androiddemo.Adapter;
+package cn.edu.gdpt.androiddemo.adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import cn.edu.gdpt.androiddemo.Fragment.CoverterFragment;
-import cn.edu.gdpt.androiddemo.Fragment.HomeFragment;
+import cn.edu.gdpt.androiddemo.fragment.CoverterFragment;
+import cn.edu.gdpt.androiddemo.fragment.HomeFragment;
 
 public class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
     private String[] mTitles = new String[]{"市场汇率", "汇率转换"};

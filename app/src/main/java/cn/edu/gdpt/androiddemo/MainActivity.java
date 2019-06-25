@@ -1,6 +1,5 @@
 package cn.edu.gdpt.androiddemo;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -10,13 +9,13 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 
-import cn.edu.gdpt.androiddemo.Adapter.FragmentPagerAdapter;
+import cn.edu.gdpt.androiddemo.adapter.FragmentPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ImageView img_main_menu;
     private TabLayout tablayout_main;
-    private ViewPager viewPager;
+    public static ViewPager viewPager;
     private FragmentPagerAdapter fragmentPagerAdapter;
 
     @Override
