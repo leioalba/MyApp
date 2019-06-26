@@ -1,5 +1,6 @@
 package cn.edu.gdpt.androiddemo.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tablayout_main;
     public static ViewPager viewPager;
     private FragmentPagerAdapter fragmentPagerAdapter;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,14 @@ public class MainActivity extends AppCompatActivity {
         fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(fragmentPagerAdapter);
         tablayout_main.setupWithViewPager(viewPager);
-
+        imageView = (ImageView) findViewById(R.id.img_search);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                startActivity(intent);
+            }
+        });
         img_main_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
