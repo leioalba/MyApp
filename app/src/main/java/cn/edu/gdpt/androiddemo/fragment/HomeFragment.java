@@ -22,6 +22,7 @@ import cn.edu.gdpt.androiddemo.bean.MyHuilv;
 import cn.edu.gdpt.androiddemo.databinding.FragmentHomeBinding;
 import cn.edu.gdpt.androiddemo.utils.NetworkListining;
 import cn.edu.gdpt.androiddemo.utils.OkhttpUntil;
+import lumenghz.com.pullrefresh.PullToRefreshView;
 
 
 /**
@@ -29,6 +30,7 @@ import cn.edu.gdpt.androiddemo.utils.OkhttpUntil;
  */
 public class HomeFragment extends Fragment {
   FragmentHomeBinding fragmentHomeBinding;
+    private PullToRefreshView pullToRefreshView;
     public static    FragmentActivity activitys;
 
     public FragmentActivity getActivitys() {
@@ -40,10 +42,6 @@ public class HomeFragment extends Fragment {
     }
 
     @Nullable
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,14 +49,24 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         fragmentHomeBinding= DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false);
         View view=fragmentHomeBinding.getRoot();
+
+        pullToRefreshView = (PullToRefreshView)view.findViewById(R.id.pull_to_refresh);
+        pullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                pullToRefreshView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        pullToRefreshView.setRefreshing(false);
+                    }
+                },1000);
+            }
+        });
         getdata();
-
-
         return view;
-
     }
 
-public void getdata(){
+    public void getdata(){
     OkhttpUntil.enqueueGetrequest("http://web.juhe.cn:8080/finance/exchange/rmbquot?key=efbddb0b2107a1957c750b6d1592f361", Huilv.class, new NetworkListining<Huilv>() {
         @Override
         public void BackResultSuccess(Huilv bean, int code) {
