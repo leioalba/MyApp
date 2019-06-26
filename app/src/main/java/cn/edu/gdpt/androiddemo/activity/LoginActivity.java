@@ -2,7 +2,11 @@ package cn.edu.gdpt.androiddemo.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,14 +15,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import cn.edu.gdpt.androiddemo.R;
+import java.io.File;
 
-public class LoginActivity extends AppCompatActivity {
+import cn.edu.gdpt.androiddemo.R;
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private String userName, psw, spPsw;
     private TextView tv_register;
+    private CircleImageView circleImageView;
     private EditText et_username;
     private EditText et_psw;
-    private Button btn_Login;
+    private Button btn_Login,ButtonLocal;
+    private static final File USER_ICON = new File(Environment.getExternalStorageDirectory(), "user_icon.jpg");
+    private static final int CODE_PHOTO_REQUEST = 1;
+    private static final int CODE_CAMERA_REQUEST = 2;
+    private static final int CODE_PHOTO_CLIP = 3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +50,9 @@ public class LoginActivity extends AppCompatActivity {
         });
         et_username = (EditText) findViewById(R.id.et_username);
         et_psw = (EditText) findViewById(R.id.et_psw);
+        circleImageView=(CircleImageView)findViewById(R.id.circleImageView);
+        ButtonLocal = (Button) findViewById(R.id.ButtonLocal);
+        ButtonLocal.setOnClickListener(this);
         btn_Login=(Button)findViewById(R.id.btn_login);
 
 
@@ -94,5 +110,68 @@ public class LoginActivity extends AppCompatActivity {
                 et_username.setSelection(userName.length());
             }
         }
+        if (resultCode == RESULT_CANCELED) {
+            Toast.makeText(LoginActivity.this, "取消", Toast.LENGTH_LONG).show();
+            return;
+        }
+        switch (requestCode) {
+            case CODE_CAMERA_REQUEST:
+                if (USER_ICON.exists()) {
+                    photoClip(Uri.fromFile(USER_ICON));
+                }
+                break;
+            case CODE_PHOTO_REQUEST:
+                if (data != null) {
+                    photoClip(data.getData());
+                }
+                break;
+            case CODE_PHOTO_CLIP:
+                if (data != null) {
+                    setImageToHeadView(data);
+                }
+                break;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ButtonLocal:
+                getPicFromLocal();
+                break;
+            default:
+                break;
+        }
+    }
+    private void getPicFromLocal() {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, CODE_PHOTO_REQUEST);
+    }
+
+    private void photoClip(Uri uri) {
+        Intent intent = new Intent();
+        intent.setAction("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        intent.putExtra("crop", "true");
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("outputX", 100);
+        intent.putExtra("outputY", 100);
+        intent.putExtra("return-data", true);
+        startActivityForResult(intent, CODE_PHOTO_CLIP);
+    }
+
+    private void setImageToHeadView(Intent intent) {
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            Bitmap photo = extras.getParcelable("data");
+            circleImageView.setImageBitmap(photo);
+        }
+    }
+
+
 }
