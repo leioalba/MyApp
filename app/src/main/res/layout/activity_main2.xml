@@ -5,5 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.Main2Activity">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:text="请开通VIP后进入"
+    android:textSize="24sp"/>
+</RelativeLayout>
 </android.support.constraint.ConstraintLayout>

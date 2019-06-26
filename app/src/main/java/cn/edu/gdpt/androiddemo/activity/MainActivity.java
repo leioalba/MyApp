@@ -9,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import cn.edu.gdpt.androiddemo.R;
 import cn.edu.gdpt.androiddemo.adapter.FragmentPagerAdapter;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
@@ -20,12 +22,18 @@ public class MainActivity extends AppCompatActivity {
     public static ViewPager viewPager;
     private FragmentPagerAdapter fragmentPagerAdapter;
     private ImageView imageView;
+    private CircleImageView circle;
+    private TextView tv_name,vip,duihuan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_main);
         initView();
+        String userInfo = RegisterActivity.username;
+        if (userInfo != null){
+            tv_name.setText(userInfo);
+        }
     }
 
     private void showDrawerLayout() {
@@ -49,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                 startActivity(intent);
             }
         });
@@ -57,6 +65,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showDrawerLayout();
+            }
+        });
+        circle = (CircleImageView) findViewById(R.id.circle);
+        circle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent1);
+            }
+        });
+        tv_name = (TextView) findViewById(R.id.tv_name);
+        vip = (TextView) findViewById(R.id.vip);
+        vip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2=new Intent(MainActivity.this,VipActivity.class);
+                startActivity(intent2);
+            }
+        });
+        duihuan = (TextView) findViewById(R.id.duihuan);
+        duihuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent3=new Intent(MainActivity.this,Main2Activity.class);
+               startActivity(intent3);
             }
         });
     }
