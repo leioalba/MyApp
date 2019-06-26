@@ -22,15 +22,17 @@ public class MainActivity extends AppCompatActivity {
     public static ViewPager viewPager;
     private FragmentPagerAdapter fragmentPagerAdapter;
     private CircleImageView circle;
-    private TextView vip;
-    private TextView shoucang;
-    private TextView duihuan;
+    private TextView vip,shoucang,duihuan,tvname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_main);
         initView();
+        String userInfo = RegisterActivity.username;
+        if (userInfo != null){
+            tvname.setText(userInfo);
+        }
     }
 
     private void showDrawerLayout() {
@@ -61,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
         circle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,RegisterActivity.class);
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
         });
         vip = (TextView) findViewById(R.id.vip);
         shoucang = (TextView) findViewById(R.id.shoucang);
         duihuan = (TextView) findViewById(R.id.duihuan);
-
+        tvname=(TextView)findViewById(R.id.tv_name);
     }
 
 
