@@ -12,6 +12,7 @@
         android:orientation="vertical"
         android:gravity="center">
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/caicai"/>
@@ -26,10 +27,12 @@
                 android:layout_height="50dp"
                 android:src="@drawable/huangguan"/>
             <TextView
+                android:id="@+id/vip"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="了解会员特权"
                 android:textSize="28sp"
+                android:paddingLeft="10dp"
                 />
         </LinearLayout>
     <LinearLayout
@@ -39,13 +42,15 @@
         android:orientation="horizontal">
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/home_press"/>
+            android:layout_height="40dp"
+            android:src="@drawable/ic_search_black"/>
         <TextView
+            android:id="@+id/shoucang"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="查询记录"
             android:textSize="28sp"
+            android:paddingLeft="10dp"
             />
     </LinearLayout>
     <LinearLayout
@@ -58,17 +63,42 @@
             android:layout_height="50dp"
             android:src="@drawable/money"/>
         <TextView
+            android:id="@+id/duihuan"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="货币兑换"
+            android:paddingLeft="10dp"
             android:textSize="28sp"
             />
 
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shoukuan"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_gravity="bottom"
-        android:orientation="horizontal"></LinearLayout>
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_exit_to_app_black"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="退出"
+            android:textSize="24sp"
+            android:paddingLeft="10dp"
+            android:gravity="center"
+            />
+    </LinearLayout>
 </LinearLayout>
