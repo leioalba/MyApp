@@ -1,8 +1,9 @@
-package cn.edu.gdpt.androiddemo.activity;
+package cn.edu.gdpt.androiddemo;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,9 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
-import cn.edu.gdpt.androiddemo.R;
-import cn.edu.gdpt.androiddemo.ViewPaperAdapter;
 
 public class SlapseActivity extends AppCompatActivity {
     private ViewPager mViewPager;
@@ -46,7 +44,7 @@ public class SlapseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(SlapseActivity.this, "Go Home", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(SlapseActivity.this, MainActivity.class);
+                Intent intent=new Intent(SlapseActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,6 +1,5 @@
-package cn.edu.gdpt.androiddemo.activity;
+package cn.edu.gdpt.androiddemo;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -9,11 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import cn.edu.gdpt.androiddemo.R;
 import cn.edu.gdpt.androiddemo.adapter.FragmentPagerAdapter;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
@@ -21,18 +17,12 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tablayout_main;
     public static ViewPager viewPager;
     private FragmentPagerAdapter fragmentPagerAdapter;
-    private CircleImageView circle;
-    private TextView vip,shoucang,duihuan,tvname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_main);
         initView();
-        String userInfo = RegisterActivity.username;
-        if (userInfo != null){
-            tvname.setText(userInfo);
-        }
     }
 
     private void showDrawerLayout() {
@@ -59,19 +49,5 @@ public class MainActivity extends AppCompatActivity {
                 showDrawerLayout();
             }
         });
-        circle = (CircleImageView) findViewById(R.id.circle);
-        circle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-        vip = (TextView) findViewById(R.id.vip);
-        shoucang = (TextView) findViewById(R.id.shoucang);
-        duihuan = (TextView) findViewById(R.id.duihuan);
-        tvname=(TextView)findViewById(R.id.tv_name);
     }
-
-
 }
