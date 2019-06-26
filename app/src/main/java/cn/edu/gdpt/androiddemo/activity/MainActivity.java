@@ -1,5 +1,6 @@
-package cn.edu.gdpt.androiddemo;
+package cn.edu.gdpt.androiddemo.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -8,7 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import cn.edu.gdpt.androiddemo.R;
 import cn.edu.gdpt.androiddemo.adapter.FragmentPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         tablayout_main = (TabLayout) findViewById(R.id.tablayout_main);
         viewPager = (ViewPager) findViewById(R.id.viewPager_main);
         drawerLayout = findViewById(R.id.dl_left);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linear2);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                startActivity(intent);
+            }
+        });
 
         fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(fragmentPagerAdapter);

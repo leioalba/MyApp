@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import cn.edu.gdpt.androiddemo.MainActivity;
+import cn.edu.gdpt.androiddemo.activity.MainActivity;
 import cn.edu.gdpt.androiddemo.bean.MyHuilv;
 import cn.edu.gdpt.androiddemo.fragment.CoverterFragment;
 import cn.edu.gdpt.androiddemo.fragment.HomeFragment;
