@@ -1,6 +1,5 @@
 package cn.edu.gdpt.androiddemo.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -8,7 +7,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import cn.edu.gdpt.androiddemo.R;
@@ -20,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tablayout_main;
     public static ViewPager viewPager;
     private FragmentPagerAdapter fragmentPagerAdapter;
-    private ImageView imageViewSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +39,11 @@ public class MainActivity extends AppCompatActivity {
         tablayout_main = (TabLayout) findViewById(R.id.tablayout_main);
         viewPager = (ViewPager) findViewById(R.id.viewPager_main);
         drawerLayout = findViewById(R.id.dl_left);
+
         fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(fragmentPagerAdapter);
         tablayout_main.setupWithViewPager(viewPager);
-        imageViewSearch = (ImageView) findViewById(R.id.img_search);
-        imageViewSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
-                startActivity(intent);
-            }
-        });
+
         img_main_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
