@@ -1,4 +1,4 @@
-package cn.edu.gdpt.androiddemo;
+package cn.edu.gdpt.androiddemo.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -15,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import cn.edu.gdpt.androiddemo.R;
+import cn.edu.gdpt.androiddemo.adapter.ViewPaperAdapter;
 
 public class SlapseActivity extends AppCompatActivity {
     private ViewPager mViewPager;
